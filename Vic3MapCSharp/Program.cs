@@ -17,7 +17,8 @@ internal class Program
         Stopwatch sw = Stopwatch.StartNew();
         Random rand = new Random();
         //move up 3 directorys from local
-        string localDir = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+        var currentDirectory = new DirectoryInfo(Directory.GetCurrentDirectory());
+        string localDir = currentDirectory.Parent?.Parent?.Parent?.FullName ?? "";
 
         
         //Draws Individual RGO Maps
@@ -120,7 +121,7 @@ internal class Program
                                     string n = l2[i].Replace("\"", "").Replace("x", "");
                                     Color c = ColorTranslator.FromHtml("#" + n);
                                     //set prov with color c to isImpassible
-                                    if (s.provDict.TryGetValue(c, out Province p)) {
+                                    if (s.provDict.TryGetValue(c, out Province? p)) {
                                         p.isImpassible = true;
                                     }
 
@@ -135,7 +136,7 @@ internal class Program
                                     string n = l2[i].Replace("\"", "").Replace("x", "");
                                     Color c = ColorTranslator.FromHtml("#" + n);
                                     //set prov with color c to prime land
-                                    if (s.provDict.TryGetValue(c, out Province p)) {
+                                    if (s.provDict.TryGetValue(c, out Province? p)) {
                                         p.isPrimeLand = true;
                                     }
                                 }
@@ -217,7 +218,7 @@ internal class Program
 
                             Color hubC = ColorTranslator.FromHtml("#" + line.Split("=")[1].Replace("\"", "").Replace("x", "").Trim());
                             //set prov with color c hubName to name
-                            if (s.provDict.TryGetValue(hubC, out Province p)) {
+                            if (s.provDict.TryGetValue(hubC, out Province? p)) {
                                 p.hubName = line.Split("=")[0].Trim();
                                 //if s.color.A is 0 set the color to hubcolor
                                 if (s.color.A == 0) {
@@ -489,8 +490,8 @@ internal class Program
             
 
             if (doDrawStartingNations || doDrawSaves) {
-                Dictionary<string, Nation> nationDict = parseNations(regionList);
-                if (nationDict == null) {
+                Dictionary<string, Nation>? nationDict = parseNations(regionList);
+                if (nationDict is null) {
                     return;
                 }
 
@@ -1390,7 +1391,7 @@ internal class Program
             impossiblePrimeMap.Save(localDir + "/_Output/ColorMap/impossible_prime_map.png");
         }
 
-        Dictionary<string, Nation> parseNations(List<Region> regionList) {
+        Dictionary<string, Nation>? parseNations(List<Region> regionList) {
             //dictionary of nation name and nation
             Dictionary<string, Nation> nationDict = new Dictionary<string, Nation>();
 
@@ -1844,7 +1845,7 @@ internal class Program
             string[] lines = File.ReadAllLines(filePath);
 
             int indintation = -2;
-            Nation n = null;
+            Nation? n = null;
             int potentialID = -1;
             bool foundSeaNodes = false;
             bool civilWarFound = false;
@@ -1905,7 +1906,7 @@ internal class Program
                             }
                         }
                         //if rgbValues has 3 values
-                        if (rgbValues.Count == 3) {
+                        if (rgbValues.Count == 3 && n is not null) {
                             //set n.color to rgbValues
                             n.color = Color.FromArgb(rgbValues[0], rgbValues[1], rgbValues[2]);
                         }

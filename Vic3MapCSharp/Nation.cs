@@ -15,7 +15,7 @@ public class Nation
     public List<String> cultures = new List<string>();
     public string type = "";
     public string tier = "";
-    public State capital = null;
+    public State? capital = null;
     public List<State> claimList = new List<State>();
 
     public (int, int) center = (0, 0);
