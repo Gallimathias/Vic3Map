@@ -12,4 +12,8 @@
 		<PackageReference Include="System.Drawing.Common" Version="6.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Vic3Map.Core\Vic3Map.Core.csproj" />
+	</ItemGroup>
+
 </Project>

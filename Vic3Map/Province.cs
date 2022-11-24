@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
+namespace Vic3Map;
 public class Province
 {
     public string name = "";

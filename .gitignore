@@ -363,5 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # Custom stuff
-/Vic3MapCSharp/_Input
-/Vic3MapCSharp/_Output
+/compare/
+/Vic3Map/_Input
+/Vic3Map/_Output

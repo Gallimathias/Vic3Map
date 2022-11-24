@@ -1,6 +1,9 @@
 ﻿
 using System.Drawing;
 //class Region stores Name, Color, and States
+
+namespace Vic3Map;
+
 public class Region
 {
     public string name = "";

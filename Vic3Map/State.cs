@@ -1,4 +1,7 @@
 ﻿using System.Drawing;
+
+namespace Vic3Map;
+
 //State class stores provIDlsit, name, arabelResoures, cappedResoures, and discoverableResources
 public class State
 {

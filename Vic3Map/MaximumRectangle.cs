@@ -1,3 +1,5 @@
+namespace Vic3Map;
+
 public class MaximumRectangle
 {
     //find the largest rectangle without holes in the region and return the top left and bottom right corners of the rectangle as a tuple

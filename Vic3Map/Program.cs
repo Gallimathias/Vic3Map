@@ -5,6 +5,8 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Linq.Expressions;
 
+namespace Vic3Map;
+
 internal class Program
 {
     private static void Main(string[] args) {

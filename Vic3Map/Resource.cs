@@ -1,5 +1,8 @@
 ﻿using System.Drawing;
 //Resource class stores type, knownAmmount, discoverableAmmount
+
+namespace Vic3Map;
+
 public class Resource
 {
     public string name = "";
